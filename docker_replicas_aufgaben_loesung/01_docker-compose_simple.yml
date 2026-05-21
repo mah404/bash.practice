@@ -1,0 +1,11 @@
+# Aufgabe 2: Einfache Compose-Datei erstellen
+# Aufgabe 7: Compose-Datei wieder vereinfachen
+# This is the simple Docker Compose file without a fixed port.
+# It is good for using replicas with --scale because no host port is blocked.
+
+# services contains all containers that Docker Compose should manage.
+services:
+  # web is the name of the service.
+  web:
+    # nginx is the Docker image used for this service.
+    image: nginx

@@ -1,7 +1,7 @@
 # Solution file for Uebungsblatt YAML Transferaufgaben.
 # This file contains the YAML parts for the exercises.
 
-# Aufgabe 1: YAML lesen und erklaeren
+# Aufgabe Nummer 1 / Task 1: Read and explain YAML
 # This is the given course example, written with English comments.
 aufgabe_1_kurs:
   # Course name.
@@ -32,7 +32,7 @@ aufgabe_1_kurs:
     # Time is written as text because 17:00 could be interpreted in a special way.
     verfuegbar_bis: "17:00"
 
-# Aufgabe 2: Schluessel, Werte und Datentypen erkennen
+# Aufgabe Nummer 2 / Task 2: Recognize keys, values, and data types
 # This area stores the example values and comments explain their data types.
 aufgabe_2_datentypen:
   # Text/string value.
@@ -55,7 +55,7 @@ aufgabe_2_datentypen:
   # Number/integer value.
   speicher_gb: 4
 
-# Aufgabe 3: Fehlerhafte YAML-Datei korrigieren
+# Aufgabe Nummer 3 / Task 3: Correct the broken YAML file
 # This is the corrected server documentation.
 aufgabe_3_server:
   # Server name belongs to the server area.
@@ -75,7 +75,7 @@ aufgabe_3_server:
   # Description of the server.
   beschreibung: Das ist ein Testserver
 
-# Aufgabe 4: Sachverhalt in YAML umwandeln
+# Aufgabe Nummer 4 / Task 4: Convert the workplace situation into YAML
 # This YAML describes one workplace/client.
 aufgabe_4_arbeitsplatz:
   # Name of the workplace.
@@ -117,7 +117,7 @@ aufgabe_4_arbeitsplatz:
   # Extra comment about this device.
   kommentar: Geraet wird im Schulungsraum eingesetzt.
 
-# Aufgabe 5: Helpdesk-Tickets als YAML modellieren
+# Aufgabe Nummer 5 / Task 5: Model helpdesk ticket templates as YAML
 # This list contains three helpdesk ticket templates.
 aufgabe_5_ticket_vorlagen:
   # First ticket template.
@@ -138,7 +138,7 @@ aufgabe_5_ticket_vorlagen:
     kategorie: Microsoft 365
     standardantwort: Wir pruefen Ihre Lizenz und Ihre Gruppenmitgliedschaften.
 
-# Aufgabe 6: Docker-Compose-Kontext verstehen
+# Aufgabe Nummer 6 / Task 6: Understand the Docker Compose YAML context
 # This is the given Docker Compose-like structure.
 aufgabe_6_compose_beispiel:
   # services is the top-level area.
@@ -155,7 +155,7 @@ aufgabe_6_compose_beispiel:
       # always means Docker should restart the container automatically.
       restart: always
 
-# Aufgabe 7: Eigene kleine Compose-nahe YAML-Datei
+# Aufgabe Nummer 7 / Task 7: Create a small Compose-like YAML file
 # This YAML describes two services: a web server and an app.
 aufgabe_7_services:
   # All services are stored under services.
@@ -183,4 +183,3 @@ aufgabe_7_services:
 
       # Restart the service unless it was stopped manually.
       restart: unless-stopped
-

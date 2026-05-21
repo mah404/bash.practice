@@ -1,0 +1,16 @@
+# Aufgabe 6: Problem mit festen Ports verstehen
+# This file shows the fixed port problem with replicas.
+# It works with one container, but it is problematic with three replicas.
+
+# services contains all containers that Docker Compose should manage.
+services:
+  # web is the name of the service.
+  web:
+    # nginx is the Docker image used for this service.
+    image: nginx
+
+    # ports connects a port on the host computer to a port inside the container.
+    ports:
+      # Host port 8080 is connected to container port 80.
+      # Only one container can use host port 8080 at the same time.
+      - "8080:80"
