@@ -1,0 +1,46 @@
+# Aufgabe 8: depends_on mit service_healthy erklaeren
+# This file shows that app should wait until db is healthy.
+
+# services contains all containers managed by Docker Compose.
+services:
+  # app is the application service.
+  app:
+    # nginx is used here as a simple example app.
+    image: nginx
+
+    # depends_on controls startup order.
+    depends_on:
+      # app depends on the db service.
+      db:
+        # app should wait until db is healthy.
+        condition: service_healthy
+
+  # db is the database service.
+  db:
+    # postgres:16 is the PostgreSQL image.
+    image: postgres:16
+
+    # environment contains database setup values.
+    environment:
+      # Database user.
+      POSTGRES_USER: appuser
+
+      # Database password.
+      POSTGRES_PASSWORD: geheim
+
+      # Database name.
+      POSTGRES_DB: appdb
+
+    # Healthcheck for the database.
+    healthcheck:
+      # pg_isready checks if PostgreSQL is ready.
+      test: ["CMD-SHELL", "pg_isready -U appuser -d appdb"]
+
+      # Docker runs the healthcheck every 10 seconds.
+      interval: 10s
+
+      # Docker waits up to 5 seconds.
+      timeout: 5s
+
+      # Docker tries 5 times before marking db unhealthy.
+      retries: 5

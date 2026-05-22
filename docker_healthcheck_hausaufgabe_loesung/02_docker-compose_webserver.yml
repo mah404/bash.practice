@@ -1,0 +1,14 @@
+# Aufgabe 2: Einfachen Webserver starten
+# This Compose file starts one nginx web server.
+
+# services contains all containers managed by Docker Compose.
+services:
+  # web is the service name.
+  web:
+    # nginx is the image for a simple web server.
+    image: nginx
+
+    # ports connects the computer with the container.
+    ports:
+      # Host port 8080 is connected to container port 80.
+      - "8080:80"

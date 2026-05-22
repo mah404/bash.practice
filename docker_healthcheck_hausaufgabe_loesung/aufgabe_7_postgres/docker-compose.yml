@@ -1,0 +1,37 @@
+# Aufgabe 7: Healthcheck bei einer Datenbank verstehen
+# This file starts PostgreSQL with a database healthcheck.
+
+# services contains all containers managed by Docker Compose.
+services:
+  # db is the database service name.
+  db:
+    # postgres:16 is the PostgreSQL image.
+    image: postgres:16
+
+    # environment contains variables used by the PostgreSQL container.
+    environment:
+      # Database user.
+      POSTGRES_USER: appuser
+
+      # Database password.
+      POSTGRES_PASSWORD: geheim
+
+      # Database name.
+      POSTGRES_DB: appdb
+
+    # Healthcheck for PostgreSQL.
+    healthcheck:
+      # pg_isready checks if PostgreSQL is ready for connections.
+      test: ["CMD-SHELL", "pg_isready -U appuser -d appdb"]
+
+      # Docker runs the healthcheck every 10 seconds.
+      interval: 10s
+
+      # Docker waits up to 5 seconds for the command.
+      timeout: 5s
+
+      # Docker tries 5 times before marking the database unhealthy.
+      retries: 5
+
+      # Docker gives the database 10 seconds startup time.
+      start_period: 10s

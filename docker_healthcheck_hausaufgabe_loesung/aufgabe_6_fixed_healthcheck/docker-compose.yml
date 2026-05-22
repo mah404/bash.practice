@@ -1,0 +1,30 @@
+# Aufgabe 6: Fehler beheben
+# This file fixes the healthcheck by using the correct internal port.
+
+# services contains all containers managed by Docker Compose.
+services:
+  # web is the service name.
+  web:
+    # nginx is the image for a simple web server.
+    image: nginx
+
+    # Aufgabe 6 uses host port 8083 so it does not conflict with other tasks.
+    ports:
+      - "8083:80"
+
+    # Correct healthcheck for nginx.
+    healthcheck:
+      # localhost without a port uses port 80, which is correct for nginx.
+      test: ["CMD-SHELL", "wget --spider -q http://localhost || exit 1"]
+
+      # Docker runs the healthcheck every 10 seconds.
+      interval: 10s
+
+      # Docker waits up to 5 seconds for the command.
+      timeout: 5s
+
+      # Docker tries 3 times before marking the container unhealthy.
+      retries: 3
+
+      # Docker gives the container 10 seconds startup time.
+      start_period: 10s

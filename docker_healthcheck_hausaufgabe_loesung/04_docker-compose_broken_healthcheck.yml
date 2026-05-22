@@ -1,0 +1,30 @@
+# Aufgabe 4: Healthcheck absichtlich kaputt machen
+# This file uses a wrong port so the healthcheck becomes unhealthy.
+
+# services contains all containers managed by Docker Compose.
+services:
+  # web is the service name.
+  web:
+    # nginx is the image for a simple web server.
+    image: nginx
+
+    # Aufgabe 4 uses host port 8082 so it does not conflict with other tasks.
+    ports:
+      - "8082:80"
+
+    # This healthcheck is intentionally wrong for the exercise.
+    healthcheck:
+      # Port 9999 is wrong because nginx listens on port 80 inside the container.
+      test: ["CMD-SHELL", "wget --spider -q http://localhost:9999 || exit 1"]
+
+      # Docker runs the healthcheck every 10 seconds.
+      interval: 10s
+
+      # Docker waits up to 5 seconds for the command.
+      timeout: 5s
+
+      # Docker tries 3 times before marking the container unhealthy.
+      retries: 3
+
+      # Docker gives the container 10 seconds startup time.
+      start_period: 10s
