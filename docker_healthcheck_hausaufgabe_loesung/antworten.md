@@ -268,11 +268,11 @@ services:
 
 2. Was bedeutet `condition: service_healthy`?
 
-   Der andere Service muss erst `healthy` sein.
+  Function 
 
 3. Warum ist das besser als nur `depends_on` ohne Healthcheck?
 
-   Es wird nicht nur der Start geprueft, sondern die echte Bereitschaft.
+   Es wird nicht nur der Start , sondern die echte Bereitschaft.
 
 4. In welchem Praxisfall waere das besonders hilfreich?
 
